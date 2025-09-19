@@ -46,22 +46,29 @@ An SSIS ETL package that processes telecom transaction CSV files every 5 minutes
 - Or deploy to SQL Server and schedule via SQL Server Agent
 
 ## Project Structure
+```
 Telecom-ETL-SSIS/
-├── SQL Queries/                  # Database setup scripts/
+├── SQL Queries/                # Database setup scripts
 │   ├── 01. Create database.sql
-│   ├── 02. Create fact transaction table.sql/
-│   ├── 03. Create error destination output.sql/
+│   ├── 02. Create fact transaction table.sql
+│   ├── 03. Create error destination output.sql
 │   └── 04. Create dim imsi.sql
-├── Source Files/                 # Sample CSV data files/
+│
+├── Source Files/               # Sample CSV/Excel input data
 │   ├── 01_clean_data.xlsx
-│   ├── 02_clean_data_with_null.xlsx/
+│   ├── 02_clean_data_with_null.xlsx
 │   ├── 03_sample_data.xlsx
-│   └── batch_01_file_01.xlsx (and other batch files...)
-├── Processed Files/              # Archive folder for processed files
-├── Telecom-ETL/                  # SSIS project folder
-│   ├── Package.dtsx              # Main SSIS package
-│   ├── Project.params            # Project parameters
-│   ├── Telecom-ETL.database      # Database connection
-│   ├── Telecom-ETL.dtproj        # SSIS project file
-│   └── Telecom-ETL.dtproj.user   # User-specific project settings                 
-└── ETL - Telecom.docx           # Project requirements document
+│   └── batch_01_file_01.xlsx   # (and other batch files...)
+│
+├── Processed Files/            # Archive folder for processed files
+│
+├── Telecom-ETL/                # SSIS project folder
+│   ├── Package.dtsx            # Main SSIS package
+│   ├── Project.params          # Project parameters
+│   ├── Telecom-ETL.database    # Database connection configuration
+│   ├── Telecom-ETL.dtproj      # SSIS project file
+│   └── Telecom-ETL.dtproj.user # User-specific project settings
+│
+└── ETL - Telecom.docx          # Project requirements and documentation
+
+```
