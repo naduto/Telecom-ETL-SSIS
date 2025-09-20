@@ -19,7 +19,7 @@ An SSIS ETL package that processes telecom transaction CSV files every 5 minutes
 
 ## ETL Data Flow
 ![Data Flow](images/dataflow.png)
-The data flow consists of:
+- The data flow consists of:
 1. Data Source - Reads CSV files
 2. Adding Subscriber_id - Performs IMSI lookup (202 rows)
 3. Subscriber_id nulls - Handles lookup failures 
@@ -29,9 +29,9 @@ The data flow consists of:
    
 ## Control Flow
 ![Control Flow](images/controlflow.png)
-The control flow uses a Foreach Loop Container that contains:
-- Data Flow Task - Processes each CSV file
-- File System Task - Moves processed files to archive folder
+- The control flow uses a Foreach Loop Container that contains:
+1. Data Flow Task - Processes each CSV file
+2. File System Task - Moves processed files to archive folder
   
 ## How to Run
 
