@@ -17,6 +17,22 @@ An SSIS ETL package that processes telecom transaction CSV files every 5 minutes
 - IMEI parsing to extract TAC and SNR components
 - Comprehensive error logging and rejected record tracking
 
+## ETL Data Flow
+![Data Flow](images/dataflow.png)
+The data flow consists of:
+1. Data Source - Reads CSV files
+2. Adding Subscriber_id - Performs IMSI lookup (202 rows)
+3. Subscriber_id nulls - Handles lookup failures 
+4. Adding TAC and SNR - Parses IMEI into components (202 rows)
+5. Successful Fact Transaction - Loads valid records to database
+6. Error Destination - Captures rejected records (11 rows to OLE DB Destination Error Output)
+   
+## Control Flow
+![Control Flow](images/controlflow.png)
+The control flow uses a Foreach Loop Container that contains:
+- Data Flow Task - Processes each CSV file
+- File System Task - Moves processed files to archive folder
+  
 ## How to Run
 
 ### Prerequisites
